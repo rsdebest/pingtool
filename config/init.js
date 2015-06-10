@@ -5,7 +5,7 @@
  */
 var glob = require('glob'),
 	chalk = require('chalk'),
-	pingdom = require('../app/controllers/pingdom.server.controller');
+	cronjob = require('../app/controllers/cronjob.server.controller');
 
 /**
  * Module init function.
@@ -31,6 +31,6 @@ module.exports = function() {
 		}
 	});
 
-	pingdom.init();
+	cronjob.init();
 
 };

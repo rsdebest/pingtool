@@ -21,13 +21,13 @@ exports.init = function(){
 	  onTick: function() {
 	    console.log('Tick!');
 
-	    pingdomApi.getChecks()
-		.spread(function(checks, response){
-		  console.log(checks);
-		})
-		.catch(function(e){
-		  console.log(e);
-		});
+	 	//pingdomApi.getChecks()
+		// .spread(function(checks, response){
+		//   console.log(checks);
+		// })
+		// .catch(function(e){
+		//   console.log(e);
+		// });
 		console.log('Tack!');
 	  },
 	  start: false,
