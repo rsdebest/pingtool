@@ -12,6 +12,11 @@ exports.init = function(){
 	  cronTime: '0 */1 * * * *',
 	  onTick: function() {
 	    console.log('Tick!');
+
+	    api.getChecks()
+		.spread(function(checks, response){
+			console.log(checks);
+		});
 	  },
 	  start: false,
 	  timeZone: 'Europe/Amsterdam'

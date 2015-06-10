@@ -10,7 +10,9 @@ var keys = require('../../config/keys/keys'),
     	appkey: keys.pingdom.apiKey
 	});
 
-exports.getChecks = pingdom.getChecks();
+exports.getChecks = function(){
+	return pingdom.getChecks();
+}
 
 // -- Usagge:
 // 	pingdomApi.getChecks()
