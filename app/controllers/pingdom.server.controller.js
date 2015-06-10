@@ -4,7 +4,8 @@
  * Module dependencies.
  */
 var CronJob = require('cron').CronJob,
-	pingdom = require('pingdom-api');
+	pingdom = require('pingdom-api'),
+	keys	= require('../../config/keys/keys');
 
 exports.init = function(){
 
