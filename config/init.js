@@ -4,9 +4,7 @@
  * Module dependencies.
  */
 var glob = require('glob'),
-	chalk = require('chalk'),
-	cronjob = require('../app/controllers/cronjob.server.controller');
-
+	chalk = require('chalk');
 /**
  * Module init function.
  */
@@ -30,7 +28,4 @@ module.exports = function() {
 			console.log(chalk.black.bgWhite('Application loaded using the "' + process.env.NODE_ENV + '" environment configuration'));
 		}
 	});
-
-	cronjob.init();
-
 };

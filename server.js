@@ -5,7 +5,8 @@
 var init = require('./config/init')(),
 	config = require('./config/config'),
 	mongoose = require('mongoose'),
-	chalk = require('chalk');
+	chalk = require('chalk'),
+	cronjob = require('./app/controllers/cronjob.server.controller');
 
 /**
  * Main application entry file.
@@ -31,6 +32,9 @@ app.listen(config.port);
 
 // Expose app
 exports = module.exports = app;
+
+
+cronjob.init();
 
 // Logging initialization
 console.log('MEAN.JS application started on port ' + config.port);
