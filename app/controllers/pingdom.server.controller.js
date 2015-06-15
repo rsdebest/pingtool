@@ -12,7 +12,7 @@ var keys = require('../../config/keys/keys'),
 
 exports.getChecks = function(){
 	return pingdom.getChecks();
-}
+};
 
 // -- Usagge:
 // 	pingdomApi.getChecks()
