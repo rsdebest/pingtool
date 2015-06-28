@@ -5,20 +5,11 @@
  */
 var CronJob = require('cron').CronJob,
 	api = require('./pingdom.server.controller'),
-	mongoose = require('mongoose'),
-	model = require('../models/document.server.model');
+	record = require('../factories/record.server.factory');
 
 exports.init = function(){
 
 	console.log('starting cronjob');
-
-	// checksModel.save(function(err, response) {
- //  		if (err) return handleError(err);
- //  		console.log('--saved');
- //  		console.log(response);
-	// });
-	// var checksCollection = new model.Checks(checks);
-	// checksCollection.save();
 
 	var job = new CronJob({
 	  cronTime: '0 */1 * * * *',
@@ -27,8 +18,7 @@ exports.init = function(){
 
 	    api.getChecks()
 		.spread(function(checks, response){
-			var test = new model.Checks(checks);
-			test.save();
+			record.updateRecord(checks);
 		});
 	  },
 	  start: false,

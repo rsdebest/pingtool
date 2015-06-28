@@ -19,7 +19,7 @@
  */
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var documentSchema = new Schema({}, { strict: false });
+var documentSchema = new Schema({_id: String }, { strict: false });
 
 exports.Checks = mongoose.model('Checks', documentSchema);
 
