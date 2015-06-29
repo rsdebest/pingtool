@@ -7,7 +7,8 @@ var CronJob = require('cron').CronJob,
 	api = require('./pingdom.server.controller'),
 	record = require('../factories/record.server.factory');
 
-exports.init = function(){
+exports.init = function(app){
+	record.setup(app);
 
 	console.log('starting cronjob');
 
