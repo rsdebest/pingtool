@@ -1,3 +1,9 @@
 <section data-ng-controller="ChecksController">
-	This is the Checks view
+	<p ng-bind="time"></p>
+	<ul>
+		<li ng-repeat="check in checks">
+			<div ng-bind="check.name"></div>
+			<div ng-bind="check.status"></div>
+		</li>
+	<ul>
 </section>
