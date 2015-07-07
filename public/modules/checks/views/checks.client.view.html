@@ -1,7 +1,10 @@
 <section data-ng-controller="ChecksController">
+
+	<input type="text" ng-model="namesFilter" ng-change="updateGetParams()">
+
 	<p ng-bind="time"></p>
 	<ul>
-		<li ng-repeat="check in checks">
+		<li ng-repeat="check in checks | orderBy:'status' | orderBy:'name' | filter:namesFilter">
 			<div ng-bind="check.name"></div>
 			<div ng-bind="check.status"></div>
 		</li>

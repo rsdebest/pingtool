@@ -22,12 +22,16 @@ angular.module('checks').controller('ChecksController', ['$scope', '$http', 'Soc
 		Socket.on('checks.updated', function(data) {
     		$scope.checks = data.checks;
     		$scope.lastUpdatedAt(data.lastUpdate);
-    		console.log('>>> Updated the checks')
+    		console.log('>>> Updated the checks');
 		});
 
 		$scope.lastUpdatedAt = function(timestamp){
 			$scope.time = timestamp;
 		}
+
+		$scope.updateGetParams = function(){
+			console.log($scope.namesFilter);
+		};
 
 		this.init();
 	}
