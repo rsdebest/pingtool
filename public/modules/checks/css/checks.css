@@ -1,0 +1,40 @@
+body {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 16px;
+}
+
+ul {
+	padding: 0;
+	padding-bottom: 20px;
+}
+
+.server-status {
+	list-style-type: none;
+	background-color: #F1F1F1;
+	color: #4A4A4A;
+	padding: 20px;
+	margin-bottom: 20px;
+	border-radius: 5px;
+	border: 1px solid #ddd;
+}
+
+.server-status--down {
+	background-color: #f2dede;
+	color: #a94442;
+	border-color: #ebccd1;
+}
+
+.server-filter {
+	background-color: #F1F1F1;
+	color: #4A4A4A;
+	padding: 20px;
+	margin-bottom: 20px;
+	border-radius: 5px;
+	border: 1px solid #ddd;
+}
+
+.server-filter__input {
+	width: 100%;
+	font-size: 22px;
+	padding: 10px;
+}
