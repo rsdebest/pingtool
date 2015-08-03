@@ -4,6 +4,10 @@ angular.module('checks').controller('ChecksController', ['$scope', '$http', 'Soc
 	function($scope, $http, Socket) {
 
 		this.init = function(){
+			$scope.checks = [];
+			$scope.totalChecks = $scope.checks.length;
+
+			// Refactor to a service...
 			this.fetchChecks();
 		};
 
@@ -22,7 +26,9 @@ angular.module('checks').controller('ChecksController', ['$scope', '$http', 'Soc
 		Socket.on('checks.updated', function(data) {
     		$scope.checks = data.checks;
     		$scope.lastUpdatedAt(data.lastUpdate);
+
     		console.log('>>> Updated the checks');
+    		console.log(data.checks);
 		});
 
 		$scope.lastUpdatedAt = function(timestamp){

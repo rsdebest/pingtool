@@ -34,7 +34,23 @@ ul {
 }
 
 .server-filter__input {
+	border: 1px solid #ddd;
+	border-radius: 5px;
 	width: 100%;
 	font-size: 22px;
-	padding: 10px;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	margin-bottom: 20px;
+}
+
+.server-filter__inner-time {
+	width: 50%;
+	float: left;
+}
+
+.server-filter__inner-count {
+	display: inline-block;
+	width: 50%;
 }
