@@ -1,10 +1,10 @@
 <section data-ng-controller="ChecksController">
 
 	<div class="server-filter">
-		<input class="server-filter__input" type="text" ng-model="namesFilter" ng-change="updateGetParams()">
+		<input class="server-filter__input" type="text" ng-model="namesFilter" ng-change="updateGetParams()" placeholder="Zoeken">
 		<div class="server-filter__inner">
-			<div class="server-filter__inner-count">{{ filteredChecksList.length }} van de {{ checks.length }} checks getoond</div>
-			<div class="server-filter__inner-time">Geupdate op {{time}}</div>
+			<div class="server-filter__inner-count">{{ filteredChecksList.length }} van de {{ checks.length }} pingdom checks getoond</div>
+			<div class="server-filter__inner-time">Geupdate op {{time | date: 'H:mm' }}</div>
 		</div>
 	</div>
 

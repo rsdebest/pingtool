@@ -12,7 +12,7 @@ exports.setup = function(app){
 
 exports.updateRecord = function(checksData){
 
-	data.lastUpdate = new Date();
+	data.lastUpdate = Date.now();
 	data.checks = checksData;
 
 	Checks.update({_id : id },
