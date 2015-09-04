@@ -6,7 +6,8 @@
 			<input class="server-filter__submit" type="submit" value="Filter">
 		</form>
 		<div class="server-filter__inner">
-			<div class="server-filter__inner-count">{{ filteredChecksList.length }} van de {{ checks.length }} pingdom checks getoond</div>
+			<div ng-if="filteredChecksList.length" class="server-filter__inner-count">{{ filteredChecksList.length }} van de {{ checks.length }} pingdom checks getoond</div>
+			<div ng-if="!filteredChecksList.length" class="server-filter__inner-count">Geen resultaten gevonden</div>
 			<div class="server-filter__inner-time">Geupdate op {{time | date: 'HH:mm' }}</div>
 		</div>
 	</div>
