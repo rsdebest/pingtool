@@ -1,17 +1,23 @@
 <section data-ng-controller="ChecksController">
 
-	<div class="server-filter">
-		<input class="server-filter__input" type="text" ng-model="namesFilter" ng-change="updateGetParams()" placeholder="Zoeken">
+	<div class="server-filter-container">
+		<form class="server-filter" ng-submit="saveFilterUrl()">
+			<input class="server-filter__input" type="text" ng-model="checksFilter" placeholder="Filter op checks">
+			<input class="server-filter__submit" type="submit" value="Filter">
+		</form>
 		<div class="server-filter__inner">
 			<div class="server-filter__inner-count">{{ filteredChecksList.length }} van de {{ checks.length }} pingdom checks getoond</div>
-			<div class="server-filter__inner-time">Geupdate op {{time | date: 'H:mm' }}</div>
+			<div class="server-filter__inner-time">Geupdate op {{time | date: 'HH:mm' }}</div>
 		</div>
 	</div>
 
 	<ul>
-		<li class="server-status" ng-repeat="check in filteredChecksList = (checks | orderBy:'status' | orderBy:'name' | filter:namesFilter)">
+		<li class="server-status"
+			ng-class="{'server-status--down': check.status === 'down', 'server-status--unknown': check.status === 'unconfirmed_down'}"
+			ng-repeat="check in filteredChecksList = (checks | orderBy:'status':'down':'reverse' | filter:checksFilter)">
 			<div ng-bind="check.name"></div>
 			<div ng-bind="check.status"></div>
+			<i class="fa fa-warning"></i>
 		</li>
 	<ul>
 </section>

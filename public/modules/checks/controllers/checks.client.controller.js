@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('checks').controller('ChecksController', ['$scope', '$http', 'Socket',
-	function($scope, $http, Socket) {
+angular.module('checks').controller('ChecksController', ['$scope', '$http', 'Socket', '$location',
+	function($scope, $http, Socket, $location) {
 
 		this.init = function(){
 			$scope.checks = [];
@@ -9,18 +9,26 @@ angular.module('checks').controller('ChecksController', ['$scope', '$http', 'Soc
 
 			// Refactor to a service...
 			this.fetchChecks();
+
+			if($location.search().filter){
+				$scope.checksFilter = $location.search().filter;
+			}
 		};
 
 		this.fetchChecks = function(){
-			$http.get('/api').
-			success(function(data, status, headers, config) {
+			$http.get('/api')
+			.success(function(data, status, headers, config) {
 				$scope.lastUpdatedAt(data.lastUpdate);
     			$scope.checks = data.checks;
-			}).
-			error(function(data, status, headers, config) {
+			})
+			.error(function(data, status, headers, config) {
 				console.error('Error! Something went wrong');
 				console.error(data);
 			});
+		};
+
+		$scope.saveFilterUrl = function(){
+			$location.search('filter', $scope.checksFilter);
 		};
 
 		Socket.on('checks.updated', function(data) {
@@ -34,10 +42,6 @@ angular.module('checks').controller('ChecksController', ['$scope', '$http', 'Soc
 		$scope.lastUpdatedAt = function(timestamp){
 			$scope.time = timestamp;
 		}
-
-		$scope.updateGetParams = function(){
-			console.log($scope.namesFilter);
-		};
 
 		this.init();
 	}
