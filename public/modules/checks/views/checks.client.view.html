@@ -15,7 +15,7 @@
 	<ul>
 		<li class="server-status"
 			ng-class="{'server-status--down': check.status === 'down', 'server-status--unknown': check.status === 'unconfirmed_down'}"
-			ng-repeat="check in filteredChecksList = (checks | orderBy:'status':'down':'reverse' | filter:checksFilter)">
+			ng-repeat="check in filteredChecksList = (checks | orderBy:['status','name']:false | filter:checksFilter)">
 			<div ng-bind="check.name"></div>
 			<div ng-bind="check.status"></div>
 			<i class="fa fa-warning"></i>
