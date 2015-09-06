@@ -34,7 +34,6 @@ angular.module('checks').controller('ChecksController', ['$scope', '$http', 'Soc
 		Socket.on('checks.updated', function(data) {
     		$scope.checks = data.checks;
     		$scope.lastUpdatedAt(data.lastUpdate);
-
     		console.log('>>> Updated the checks');
     		console.log(data.checks);
 		});

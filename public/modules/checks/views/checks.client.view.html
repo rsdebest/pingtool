@@ -12,13 +12,30 @@
 		</div>
 	</div>
 
-	<ul>
-		<li class="server-status"
-			ng-class="{'server-status--down': check.status === 'down', 'server-status--unknown': check.status === 'unconfirmed_down'}"
-			ng-repeat="check in filteredChecksList = (checks | orderBy:['status','name']:false | filter:checksFilter)">
-			<div ng-bind="check.name"></div>
-			<div ng-bind="check.status"></div>
-			<i class="fa fa-warning"></i>
-		</li>
-	<ul>
+	<div class="server-status"
+		ng-class="{'server-status--down': check.status === 'down', 'server-status--unknown': check.status === 'unconfirmed_down'}"
+		ng-repeat="check in filteredChecksList = (checks | orderBy:['status','name']:false | filter:checksFilter)">
+		<ul>
+			<li>
+				<div class="server-status__title">Naam</div>
+				<div class="server-status__value" ng-bind="check.name"></div>
+			</li>
+			<li>
+				<div class="server-status__title">Host</div>
+				<div class="server-status__value"><a ng-href="http://{{check.hostname}}" ng-bind="check.hostname" target="_blank"></a></div>
+			</li>
+			<li>
+				<div class="server-status__title">Status</div>
+				<div class="server-status__value" ng-bind="check.status"></div>
+			</li>
+			<li ng-if="check.lasttesttime">
+				<div class="server-status__title">Gecheckt op</div>
+				<div class="server-status__value" ng-bind="check.lasttesttime * 1000 | date: 'dd-MM-yyyy HH:mm'"></div>
+			</li>
+			<li ng-if="check.lasterrortime">
+				<div class="server-status__title">Laatste error</div>
+				<div class="server-status__value" ng-bind="check.lasterrortime * 1000 | date: 'dd-MM-yyyy HH:mm'"></div>
+			</li>
+		</ul>
+	</div>
 </section>

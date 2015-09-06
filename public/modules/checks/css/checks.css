@@ -4,12 +4,17 @@ body {
 }
 
 ul {
+	list-style-type: none;
 	padding: 0;
-	padding-bottom: 20px;
+}
+
+li:after{
+	content:'';
+	display:block;
+	clear: both;
 }
 
 .server-status {
-	list-style-type: none;
 	background-color: #F1F1F1;
 	color: #4A4A4A;
 	padding: 20px;
@@ -28,6 +33,25 @@ ul {
 	background-color: #FFCE4D;
 	color: #a94442;
 	border-color: #ebccd1;
+}
+
+.server-status__title {
+	width: 20%;
+	float: left;
+	color: rgba(74, 74, 74, 0.70);
+	padding-right: 10px;
+}
+
+.server-status__value {
+	width: 80%;
+	float: left;
+	word-break: break-all;
+}
+
+@media (max-width: 767px){
+	.server-status__value, .server-status__title {
+		width: 50%;
+	}
 }
 
 .server-filter-container {
